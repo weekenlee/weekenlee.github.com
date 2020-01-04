@@ -16,7 +16,7 @@
     <meta name="description" content="" />
     
     <title>
-      标签 - 岳麓听雨Code4Fun
+      nodeschool 练习记录 - 岳麓听雨Code4Fun
     </title>
     <link rel="manifest" href="/manifest.json" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
@@ -68,7 +68,7 @@
           分类
         </a>
         
-        <a href="/tags" class="current">
+        <a href="/tags" class="">
           标签
         </a>
         
@@ -122,7 +122,7 @@
             分类
           </a>
           
-          <a href="/tags" class="current">
+          <a href="/tags" class="">
             标签
           </a>
           
@@ -155,69 +155,81 @@
     </div>
     <div id="container">
       <div class="main animated bounceInRight delay-0.7s">
-        <div id="archives">
-    
-        <div class="title">
-            标签 - c
-        </div>
-    
-
-
-
-
-    
-    
-    <section class="wrap">
-        <div class="meta">
-            <a href="/archives/2020" >
-                2020
-            </a>
-        </div>
-        <div class="year">
-            
-            <article class="item">
-            <a href="/2020/01/04/2013-05-30-c/" title="c结构体对齐">
-                <span>2020/01/04</span>
-                <span>c结构体对齐</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-03-29-new-post/" title="Lua 混合 C 相互调用的一个例子">
-                <span>2020/01/04</span>
-                <span>Lua 混合 C 相互调用的一个例子</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-03-30-second/" title="C99下的c闭包">
-                <span>2020/01/04</span>
-                <span>C99下的c闭包</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-05-30-c-s-shared-object-so/" title="c &#39;s 动态链接库">
-                <span>2020/01/04</span>
-                <span>c &#39;s 动态链接库</span>
-            </a>
-            </article>
-            
-    
-        </div>
-    </section>
+        <article class="post-entry">
+    <div class="header">
       
-<div class="paginator">
-    <span class="page-number current">1</span>
-</div>
-</div>
+      <div class="title">nodeschool 练习记录</div>
+      <div class="meta">
+        <span class="item">
+          <span class="iconfont icon-time-circle"></span>
+          <span>2020/01/04</span>
+        </span>
 
+        
+
+         
+        <span class="item">
+          <span class="iconfont icon-folder"></span>
+          <span>
+              
+                
+                  <a href="/categories/语法">语法</a>
+                
+              
+          </span>
+        </span>
+        
+        
+         
+          <span class="item">
+            <span class="iconfont icon-tag1"></span>
+            <span>
+                
+                  
+                    <a href="/tags/js">js</a>
+                  
+                
+            </span>
+          </span>
+         
+      </div>
+      <div>
+      </div>
+    </div>
+    <html><head></head><body><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br>::::::::::::::<br>bysteps.js<br>::::::::::::::<br>var sum=0;<br><span class="hljs-keyword">for</span>(var i=2,max=process.argv.length;i<max;i++)<br>{<br>sum += Number(process.argv[i])<br>}<br>console.log(sum)<br>::::::::::::::<br>firstAsyncio.js<br>::::::::::::::<br>var fs = require(<span class="hljs-string">"fs"</span>)<br>fs.readFile(process.argv[2],<span class="hljs-keyword">function</span>(err,data){<br>        var str = data.toString();<br>            var length = str.split(<span class="hljs-string">"\n"</span>).length -1;<br>                console.log(length);<br>                });<br>::::::::::::::<br>firstio.js<br>::::::::::::::<br>var fs = require(<span class="hljs-string">"fs"</span>)<br>var path = process.argv[2];<br>var buf = fs.readFileSync(path);<br>var str = buf.toString();<br>var length = str.split(<span class="hljs-string">'\n'</span>).length-1<br>console.log(length)<br>::::::::::::::<br>helloworld.js<br>::::::::::::::<br>console.log(<span class="hljs-string">"HELLO WORLD"</span>)}<br></code></pre></td></tr></tbody></table></figure>
+</body></html>
+
+  
+  <div class="post-guide">
+    <div class="item left">
+        
+          <a href="/2020/01/04/2013-05-30-c-s-shared-object-so/">c 's 动态链接库</a>
+        
+    </div>
+    <div class="item right">
+        
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="http://github.com/weekenlee">vklee</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="http://github.com/weekenlee/2020/01/04/2013-10-24-new-post/">http://github.com/weekenlee/2020/01/04/2013-10-24-new-post/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="http://github.com/weekenlee">vklee</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+  
+</article>
         <footer>
           <div class="copyright">
             ©2020

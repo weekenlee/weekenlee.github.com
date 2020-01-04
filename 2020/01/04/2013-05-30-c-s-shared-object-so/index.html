@@ -16,7 +16,7 @@
     <meta name="description" content="" />
     
     <title>
-      标签 - 岳麓听雨Code4Fun
+      c &#39;s 动态链接库 - 岳麓听雨Code4Fun
     </title>
     <link rel="manifest" href="/manifest.json" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
@@ -68,7 +68,7 @@
           分类
         </a>
         
-        <a href="/tags" class="current">
+        <a href="/tags" class="">
           标签
         </a>
         
@@ -122,7 +122,7 @@
             分类
           </a>
           
-          <a href="/tags" class="current">
+          <a href="/tags" class="">
             标签
           </a>
           
@@ -155,69 +155,94 @@
     </div>
     <div id="container">
       <div class="main animated bounceInRight delay-0.7s">
-        <div id="archives">
-    
-        <div class="title">
-            标签 - c
-        </div>
-    
-
-
-
-
-    
-    
-    <section class="wrap">
-        <div class="meta">
-            <a href="/archives/2020" >
-                2020
-            </a>
-        </div>
-        <div class="year">
-            
-            <article class="item">
-            <a href="/2020/01/04/2013-05-30-c/" title="c结构体对齐">
-                <span>2020/01/04</span>
-                <span>c结构体对齐</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-03-29-new-post/" title="Lua 混合 C 相互调用的一个例子">
-                <span>2020/01/04</span>
-                <span>Lua 混合 C 相互调用的一个例子</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-03-30-second/" title="C99下的c闭包">
-                <span>2020/01/04</span>
-                <span>C99下的c闭包</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-05-30-c-s-shared-object-so/" title="c &#39;s 动态链接库">
-                <span>2020/01/04</span>
-                <span>c &#39;s 动态链接库</span>
-            </a>
-            </article>
-            
-    
-        </div>
-    </section>
+        <article class="post-entry">
+    <div class="header">
       
-<div class="paginator">
-    <span class="page-number current">1</span>
-</div>
-</div>
+      <div class="title">c 's 动态链接库</div>
+      <div class="meta">
+        <span class="item">
+          <span class="iconfont icon-time-circle"></span>
+          <span>2020/01/04</span>
+        </span>
 
+        
+
+         
+        <span class="item">
+          <span class="iconfont icon-folder"></span>
+          <span>
+              
+                
+                  <a href="/categories/语法">语法</a>
+                
+              
+          </span>
+        </span>
+        
+        
+         
+          <span class="item">
+            <span class="iconfont icon-tag1"></span>
+            <span>
+                
+                  
+                    <a href="/tags/c">c</a>
+                  
+                
+                  
+                    <a href="/tags/so">so</a>
+                  
+                
+            </span>
+          </span>
+         
+      </div>
+      <div>
+      </div>
+    </div>
+    <html><head></head><body><p>执行命令：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">1 gcc my_lib.c -fpic -shared -o libmy_lib.so<br>2 gcc test.c -L . -lmy_lib.so -o <span class="hljs-built_in">test</span><br>3 <span class="hljs-built_in">export</span> LD_LIBRARY_PATH=.<br></code></pre></td></tr></tbody></table></figure>
+<p>察看链接情况：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ldd <span class="hljs-built_in">test</span><br></code></pre></td></tr></tbody></table></figure>
+<p>结果为：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ ldd <span class="hljs-built_in">test</span><br>       linux-gate.so.1 =>  (0xb77a0000)<br>libmy_lib.so => ./libmy_lib.so (0xb779b000)<br>libc.so.6 => /lib/i386-linux-gnu/libc.so.6 (0xb75df000)<br>       /lib/ld-linux.so.2 (0xb77a1000)<br></code></pre></td></tr></tbody></table></figure>
+<p>源代码:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#include<stdio.h></span><br><br>void <span class="hljs-function"><span class="hljs-title">my_lib_fun</span></span>()<br>{<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"this is the lib call!\n"</span>);<br>}<br>{%endhighlight%}<br><br>{%highlight c%}<br>int main(void)<br>{<br>	my_lib_fun();<br>	<span class="hljs-built_in">return</span> 0;<br>}<br></code></pre></td></tr></tbody></table></figure>
+</body></html>
+
+  
+  <div class="post-guide">
+    <div class="item left">
+        
+          <a href="/2020/01/04/2013-04-04-tree/">go练习70:等价二叉树tree</a>
+        
+    </div>
+    <div class="item right">
+        
+          <a href="/2020/01/04/2013-10-24-new-post/">nodeschool 练习记录</a>
+        
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="http://github.com/weekenlee">vklee</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="http://github.com/weekenlee/2020/01/04/2013-05-30-c-s-shared-object-so/">http://github.com/weekenlee/2020/01/04/2013-05-30-c-s-shared-object-so/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="http://github.com/weekenlee">vklee</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+  
+</article>
         <footer>
           <div class="copyright">
             ©2020

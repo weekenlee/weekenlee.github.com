@@ -16,7 +16,7 @@
     <meta name="description" content="" />
     
     <title>
-      c结构体对齐 - 岳麓听雨Code4Fun
+      压力测试工具：siege  - 岳麓听雨Code4Fun
     </title>
     <link rel="manifest" href="/manifest.json" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
@@ -158,7 +158,7 @@
         <article class="post-entry">
     <div class="header">
       
-      <div class="title">c结构体对齐</div>
+      <div class="title">压力测试工具：siege </div>
       <div class="meta">
         <span class="item">
           <span class="iconfont icon-time-circle"></span>
@@ -173,7 +173,7 @@
           <span>
               
                 
-                  <a href="/categories/语法">语法</a>
+                  <a href="/categories/工具">工具</a>
                 
               
           </span>
@@ -186,7 +186,15 @@
             <span>
                 
                   
-                    <a href="/tags/c">c</a>
+                    <a href="/tags/go">go</a>
+                  
+                
+                  
+                    <a href="/tags/测试">测试</a>
+                  
+                
+                  
+                    <a href="/tags/nodejs">nodejs</a>
                   
                 
             </span>
@@ -196,21 +204,37 @@
       <div>
       </div>
     </div>
-    <html><head></head><body><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs bash"> 1	<span class="hljs-comment">#include<stdio.h></span><br> 2	<span class="hljs-comment">#include<stddef.h></span><br> 3	<br> 4	typedef struct <br> 5	{<br> 6	    int x;<br> 7	    short y[3];<br> 8	    long long z;<br> 9	}data_z;<br>10	<br>11	int main()<br>12	{<br>13	    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"sizeof(int) %d\n"</span>,sizeof(int));<br>14	    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"sizeof(short)%d\n "</span>,sizeof(short));<br>15	    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"sizeof(long long) %d\n"</span>,sizeof(long long));<br>16	    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"x %d\n"</span>,offsetof(data_z,x));<br>17	    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"y %d\n"</span>,offsetof(data_z,y));<br>18	    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"y1 %d\n"</span>,offsetof(data_z,y[1]));<br>19	    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"z %d\n"</span>,offsetof(data_z,z));<br>20	    <span class="hljs-built_in">return</span> 0;<br>21	}<br></code></pre></td></tr></tbody></table></figure>
-<p>结果：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">sizeof(int) 4<br>sizeof(short)2<br>sizeof(long long) 8<br>x 0<br>y 4<br>y1 6<br>z 12<br></code></pre></td></tr></tbody></table></figure>
+    <html><head></head><body><p>Siege是一个压力测试和评测工具，设计用于WEB开发这评估应用在压力下的承受能力：可以根据配置对一个WEB站点进行多用户的并发访问，记录每个用户所有请求过程的相应时间，并在一定数量的并发访问下重复进行。 </p>
+<p>用法一：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">siege -c 20 -r 2 -f hi.url<br>100个客户，循环2次，hi.url为链接列表，如<br></code></pre></td></tr></tbody></table></figure>
+<p>hi.url内容为：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">www.baidu.com<br></code></pre></td></tr></tbody></table></figure>
+<p>结果为：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">Transactions:	              40 hits<br>Availability:	          100.00 %<br>Elapsed time:	            2.98 secs<br>Data transferred:           0.16 MB<br>Response time:	            0.48 secs<br>Transaction rate:          13.42 trans/sec<br>Throughput:	        0.05 MB/sec<br>Concurrency:	            6.50<br>Successful transactions:          40<br>Failed transactions:	           0<br>Longest transaction:	        1.49<br>Shortest transaction:	        0.33<br></code></pre></td></tr></tbody></table></figure>
+<p>SIEGE测试于目标网站的网页动态静态没有关系，只要任务列表是动态网页即可。即使是需要认证的，也可以通过预先设置POST HEADER等方式模拟登录。</p>
+<p>附带一个nodejs v0.10.6与golang 1.1 对比的测试结果</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">siege -c 100 -b -t 10s http://localhost:4000/<br></code></pre></td></tr></tbody></table></figure>
+<p>node结果：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">Transactions:	            4421 hits<br>Availability:	          100.00 %<br>Elapsed time:	            9.55 secs<br>Data transferred:           0.05 MB<br>Response time:	            0.21 secs<br>Transaction rate:         462.93 trans/sec<br>Throughput:	        0.01 MB/sec<br>Concurrency:	           96.05<br>Successful transactions:        4421<br>Failed transactions:	           0<br>Longest transaction:	        0.26<br>Shortest transaction:	        0.00<br></code></pre></td></tr></tbody></table></figure>
+<p>golang1.1的结果：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">Transactions:	            5151 hits<br>Availability:	          100.00 %<br>Elapsed time:	            9.71 secs<br>Data transferred:           0.06 MB<br>Response time:	            0.04 secs<br>Transaction rate:         530.48 trans/sec<br>Throughput:	        0.01 MB/sec<br>Concurrency:	           20.60<br>Successful transactions:        5222<br>Failed transactions:	           0<br>Longest transaction:	        0.56<br>Shortest transaction:	        0.00<br></code></pre></td></tr></tbody></table></figure>
+<p>附录js代码如下：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">1	var http = require(<span class="hljs-string">'http'</span>);<br>2	<br>3	http.createServer(<span class="hljs-keyword">function</span> (req, res) {<br>4	    res.writeHead(200, {<span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'text/plain'</span>});<br>5	    res.end(<span class="hljs-string">'Hello World\n'</span>);<br>6	}).listen(1337, <span class="hljs-string">"127.0.0.1"</span>);<br>7	<br>8	console.log(<span class="hljs-string">'Server running at http://127.0.0.1:1337/'</span>);<br></code></pre></td></tr></tbody></table></figure>
+
+<p>go部分：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs bash">1	package main<br>2	<br>3	import(<br>4	    <span class="hljs-string">"fmt"</span><br>5	    <span class="hljs-string">"net/http"</span><br>6	)<br>7	<br>8	<span class="hljs-built_in">type</span> Hello struct{}<br>9	<br>10	func (h Hello) ServeHTTP(<br>11			w http.ResponseWriter,<br>12			r *http.Request){<br>13	    w.Header().Set(<span class="hljs-string">"Content-Type"</span>,<span class="hljs-string">"text/plain"</span>)<br>14	    fmt.Fprint(w,<span class="hljs-string">"Hello world\n"</span>)		<br>15	}<br>16	<br>17	func <span class="hljs-function"><span class="hljs-title">main</span></span>(){<br>18	    var h Hello<br>19	    http.ListenAndServe(<span class="hljs-string">"Localhost:4000"</span>,h)<br>20	}<br></code></pre></td></tr></tbody></table></figure>
 </body></html>
 
   
   <div class="post-guide">
     <div class="item left">
         
-          <a href="/2020/01/04/2013-04-26-python/">python实现函数权限调用管理</a>
+          <a href="/2020/01/04/2013-03-30-second/">C99下的c闭包</a>
         
     </div>
     <div class="item right">
         
-          <a href="/2020/01/04/2013-03-29-new-post/">Lua 混合 C 相互调用的一个例子</a>
+          <a href="/2020/01/04/2013-04-04-tree/">go练习70:等价二叉树tree</a>
         
     </div>
   </div>
@@ -222,7 +246,7 @@
       本文作者：<a href="http://github.com/weekenlee">vklee</a>
     </div>
     <div class="link">
-      永久链接：<a href="http://github.com/weekenlee/2020/01/04/2013-05-30-c/">http://github.com/weekenlee/2020/01/04/2013-05-30-c/</a>
+      永久链接：<a href="http://github.com/weekenlee/2020/01/04/2013-05-25-siege-http-load-test/">http://github.com/weekenlee/2020/01/04/2013-05-25-siege-http-load-test/</a>
     </div>
     <div class="declare">
       版权声明：本文首发于<a href="http://github.com/weekenlee">vklee</a>的博客，转载请注明出处！

@@ -16,7 +16,7 @@
     <meta name="description" content="" />
     
     <title>
-      标签 - 岳麓听雨Code4Fun
+      channel 在go语言里面的用法 - 岳麓听雨Code4Fun
     </title>
     <link rel="manifest" href="/manifest.json" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
@@ -68,7 +68,7 @@
           分类
         </a>
         
-        <a href="/tags" class="current">
+        <a href="/tags" class="">
           标签
         </a>
         
@@ -122,7 +122,7 @@
             分类
           </a>
           
-          <a href="/tags" class="current">
+          <a href="/tags" class="">
             标签
           </a>
           
@@ -155,69 +155,121 @@
     </div>
     <div id="container">
       <div class="main animated bounceInRight delay-0.7s">
-        <div id="archives">
-    
-        <div class="title">
-            标签 - c
-        </div>
-    
-
-
-
-
-    
-    
-    <section class="wrap">
-        <div class="meta">
-            <a href="/archives/2020" >
-                2020
-            </a>
-        </div>
-        <div class="year">
-            
-            <article class="item">
-            <a href="/2020/01/04/2013-05-30-c/" title="c结构体对齐">
-                <span>2020/01/04</span>
-                <span>c结构体对齐</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-03-29-new-post/" title="Lua 混合 C 相互调用的一个例子">
-                <span>2020/01/04</span>
-                <span>Lua 混合 C 相互调用的一个例子</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-03-30-second/" title="C99下的c闭包">
-                <span>2020/01/04</span>
-                <span>C99下的c闭包</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-05-30-c-s-shared-object-so/" title="c &#39;s 动态链接库">
-                <span>2020/01/04</span>
-                <span>c &#39;s 动态链接库</span>
-            </a>
-            </article>
-            
-    
-        </div>
-    </section>
+        <article class="post-entry">
+    <div class="header">
       
-<div class="paginator">
-    <span class="page-number current">1</span>
-</div>
-</div>
+      <div class="title">channel 在go语言里面的用法</div>
+      <div class="meta">
+        <span class="item">
+          <span class="iconfont icon-time-circle"></span>
+          <span>2020/01/04</span>
+        </span>
 
+        
+
+         
+        <span class="item">
+          <span class="iconfont icon-folder"></span>
+          <span>
+              
+                
+                  <a href="/categories/语法">语法</a>
+                
+              
+          </span>
+        </span>
+        
+        
+         
+          <span class="item">
+            <span class="iconfont icon-tag1"></span>
+            <span>
+                
+                  
+                    <a href="/tags/go">go</a>
+                  
+                
+            </span>
+          </span>
+         
+      </div>
+      <div>
+      </div>
+    </div>
+    <html><head></head><body><p>channel 主要用于goroutine之间的同步与通信，包含了有缓冲和无缓冲两种。<br>先记录下今天写代码的一个bug。。。。被c语言影响了的。。</p>
+<pre><code>chan c = make(chan int)</code></pre><p>显然，应该是</p>
+<pre><code>var c = make(chan int)</code></pre><p>以后，还是多用下面这个比较好</p>
+<pre><code>c := make(chan int)</code></pre><p>没看书，只靠经验去写，刚开始是这样</p>
+<pre><code> 1 package main
+ 2 import "fmt"
+ 3 
+ 4 func f(msg string,c chan int){
+ 5     fmt.Println(msg)
+ 6 }
+ 7 
+ 8 func main(){
+ 9     go f("goroutine")
+10 
+11     go func(msg string){
+12         fmt.Println(msg)
+13     }("going")
+14 
+25 }</code></pre><p>执行后发现无任何输出，咋一想，是因为主线已退出的缘故吧。于是加上一个简单sleep来测试下，import “time” , time.Sleep(),果然发现随机的会有些输出了。<br>这时候，就需要channel来帮助同步了。</p>
+<pre><code> 1 package main
+ 2 import "fmt"
+ 3 
+ 4 func f(msg string,c chan int){
+ 5     fmt.Println(msg)
+ 6     c<- 1
+ 7 }
+ 8 
+ 9 func main(){
+10     var c = make(chan int,2)
+11 
+12     go f("goroutine",c)
+13 
+14     go func(msg string){
+15         fmt.Println(msg)
+16         c<-1
+17     }("going")
+18 
+19     a,b := <-c, <-c
+20     fmt.Println(a,b)
+21 }</code></pre></body></html>
+
+  
+  <div class="post-guide">
+    <div class="item left">
+        
+          <a href="/2020/01/04/2013-03-29-new-post/">Lua 混合 C 相互调用的一个例子</a>
+        
+    </div>
+    <div class="item right">
+        
+          <a href="/2020/01/04/2013-03-30-second/">C99下的c闭包</a>
+        
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="http://github.com/weekenlee">vklee</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="http://github.com/weekenlee/2020/01/04/2013-03-30-channel-in-go/">http://github.com/weekenlee/2020/01/04/2013-03-30-channel-in-go/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="http://github.com/weekenlee">vklee</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+  
+</article>
         <footer>
           <div class="copyright">
             ©2020

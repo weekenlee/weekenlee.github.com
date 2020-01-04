@@ -16,7 +16,7 @@
     <meta name="description" content="" />
     
     <title>
-      标签 - 岳麓听雨Code4Fun
+      C99下的c闭包 - 岳麓听雨Code4Fun
     </title>
     <link rel="manifest" href="/manifest.json" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
@@ -68,7 +68,7 @@
           分类
         </a>
         
-        <a href="/tags" class="current">
+        <a href="/tags" class="">
           标签
         </a>
         
@@ -122,7 +122,7 @@
             分类
           </a>
           
-          <a href="/tags" class="current">
+          <a href="/tags" class="">
             标签
           </a>
           
@@ -155,69 +155,84 @@
     </div>
     <div id="container">
       <div class="main animated bounceInRight delay-0.7s">
-        <div id="archives">
-    
-        <div class="title">
-            标签 - c
-        </div>
-    
-
-
-
-
-    
-    
-    <section class="wrap">
-        <div class="meta">
-            <a href="/archives/2020" >
-                2020
-            </a>
-        </div>
-        <div class="year">
-            
-            <article class="item">
-            <a href="/2020/01/04/2013-05-30-c/" title="c结构体对齐">
-                <span>2020/01/04</span>
-                <span>c结构体对齐</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-03-29-new-post/" title="Lua 混合 C 相互调用的一个例子">
-                <span>2020/01/04</span>
-                <span>Lua 混合 C 相互调用的一个例子</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-03-30-second/" title="C99下的c闭包">
-                <span>2020/01/04</span>
-                <span>C99下的c闭包</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-05-30-c-s-shared-object-so/" title="c &#39;s 动态链接库">
-                <span>2020/01/04</span>
-                <span>c &#39;s 动态链接库</span>
-            </a>
-            </article>
-            
-    
-        </div>
-    </section>
+        <article class="post-entry">
+    <div class="header">
       
-<div class="paginator">
-    <span class="page-number current">1</span>
-</div>
-</div>
+      <div class="title">C99下的c闭包</div>
+      <div class="meta">
+        <span class="item">
+          <span class="iconfont icon-time-circle"></span>
+          <span>2020/01/04</span>
+        </span>
 
+        
+
+         
+        <span class="item">
+          <span class="iconfont icon-folder"></span>
+          <span>
+              
+                
+                  <a href="/categories/语法">语法</a>
+                
+              
+          </span>
+        </span>
+        
+        
+         
+          <span class="item">
+            <span class="iconfont icon-tag1"></span>
+            <span>
+                
+                  
+                    <a href="/tags/c">c</a>
+                  
+                
+            </span>
+          </span>
+         
+      </div>
+      <div>
+      </div>
+    </div>
+    <html><head></head><body><p><strong>C99</strong>下,c语言有了更多的扩展，这里记录下闭包和block。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs bash">//<br>//  main.c<br>//  ctest<br>//<br>//  Created by liweijian on 13-3-18.<br>//  Copyright (c) 2013年 liweijian. All rights reserved.<br>//<br><br><span class="hljs-comment">#include <stdio.h></span><br><span class="hljs-comment">#include <Block.h></span><br><br>//闭包<br>typedef void(*func_t)();<br>func_t <span class="hljs-function"><span class="hljs-title">test</span></span>()<br>{<br>    void <span class="hljs-function"><span class="hljs-title">func1</span></span>()<br>    {<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%s\n"</span>, __func__);<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"in func\n"</span>);<br>    };<br>    <span class="hljs-built_in">return</span> func1;<br>}<br><br>//block1<br><span class="hljs-comment">#define test2() ({  \</span><br>    char _a = <span class="hljs-string">'a'</span>; \<br>    _a++;          \<br>    _a;            \<br>})<br><br><br>//block2<br>typedef int (^IntBlock)();<br>IntBlock MakeCounter(int start, int increment)<br>{<br>    __block int i = start;<br>    <br>    <span class="hljs-built_in">return</span> Block_copy( ^ {<br>        int ret = i;<br>        i += increment;<br>        <span class="hljs-built_in">return</span> ret;<br>    });<br>    <br>    <br>}<br><br>int main(int argc, const char * argv[])<br>{<br><br>  <br>    <span class="hljs-built_in">test</span>()();<br>    <br>    int i = test2();<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"%d\n"</span>, i);<br>    <br>    <br>    IntBlock mycounter = MakeCounter(5, 2);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"First call: %d\n"</span>, mycounter());<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Second call: %d\n"</span>, mycounter());<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"Third call: %d\n"</span>, mycounter());<br>    <br>    /* because it was copied, it must also be released */<br>    Block_release(mycounter);<br>    <span class="hljs-built_in">return</span> 0;<br>}<br></code></pre></td></tr></tbody></table></figure>
+</body></html>
+
+  
+  <div class="post-guide">
+    <div class="item left">
+        
+          <a href="/2020/01/04/2013-03-30-channel-in-go/">channel 在go语言里面的用法</a>
+        
+    </div>
+    <div class="item right">
+        
+          <a href="/2020/01/04/2013-05-25-siege-http-load-test/">压力测试工具：siege </a>
+        
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="http://github.com/weekenlee">vklee</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="http://github.com/weekenlee/2020/01/04/2013-03-30-second/">http://github.com/weekenlee/2020/01/04/2013-03-30-second/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="http://github.com/weekenlee">vklee</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+  
+</article>
         <footer>
           <div class="copyright">
             ©2020

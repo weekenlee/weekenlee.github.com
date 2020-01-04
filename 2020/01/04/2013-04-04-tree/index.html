@@ -16,7 +16,7 @@
     <meta name="description" content="" />
     
     <title>
-      标签 - 岳麓听雨Code4Fun
+      go练习70:等价二叉树tree - 岳麓听雨Code4Fun
     </title>
     <link rel="manifest" href="/manifest.json" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
@@ -68,7 +68,7 @@
           分类
         </a>
         
-        <a href="/tags" class="current">
+        <a href="/tags" class="">
           标签
         </a>
         
@@ -122,7 +122,7 @@
             分类
           </a>
           
-          <a href="/tags" class="current">
+          <a href="/tags" class="">
             标签
           </a>
           
@@ -155,69 +155,167 @@
     </div>
     <div id="container">
       <div class="main animated bounceInRight delay-0.7s">
-        <div id="archives">
-    
-        <div class="title">
-            标签 - c
-        </div>
-    
-
-
-
-
-    
-    
-    <section class="wrap">
-        <div class="meta">
-            <a href="/archives/2020" >
-                2020
-            </a>
-        </div>
-        <div class="year">
-            
-            <article class="item">
-            <a href="/2020/01/04/2013-05-30-c/" title="c结构体对齐">
-                <span>2020/01/04</span>
-                <span>c结构体对齐</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-03-29-new-post/" title="Lua 混合 C 相互调用的一个例子">
-                <span>2020/01/04</span>
-                <span>Lua 混合 C 相互调用的一个例子</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-03-30-second/" title="C99下的c闭包">
-                <span>2020/01/04</span>
-                <span>C99下的c闭包</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-05-30-c-s-shared-object-so/" title="c &#39;s 动态链接库">
-                <span>2020/01/04</span>
-                <span>c &#39;s 动态链接库</span>
-            </a>
-            </article>
-            
-    
-        </div>
-    </section>
+        <article class="post-entry">
+    <div class="header">
       
-<div class="paginator">
-    <span class="page-number current">1</span>
-</div>
-</div>
+      <div class="title">go练习70:等价二叉树tree</div>
+      <div class="meta">
+        <span class="item">
+          <span class="iconfont icon-time-circle"></span>
+          <span>2020/01/04</span>
+        </span>
 
+        
+
+         
+        <span class="item">
+          <span class="iconfont icon-folder"></span>
+          <span>
+              
+                
+                  <a href="/categories/语法">语法</a>
+                
+              
+          </span>
+        </span>
+        
+        
+         
+          <span class="item">
+            <span class="iconfont icon-tag1"></span>
+            <span>
+                
+                  
+                    <a href="/tags/go">go</a>
+                  
+                
+            </span>
+          </span>
+         
+      </div>
+      <div>
+      </div>
+    </div>
+    <html><head></head><body><p>tree 包，定义了类型：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">   <span class="hljs-built_in">type</span> Tree struct {<br>Left  *Tree<br>Value int<br>Right *Tree<br>   }<br></code></pre></td></tr></tbody></table></figure>
+<ol>
+<li><p>实现 Walk 函数。</p>
+</li>
+<li><p>测试 Walk 函数。</p>
+</li>
+</ol>
+<p>函数 tree.New(k) 构造了一个随机结构的二叉树，保存了值 k，2k，3k，…，10k。</p>
+<p>创建一个新的 channel ch 并且对其进行步进：</p>
+<p>go Walk(tree.New(1), ch)<br>然后从 channel 中读取并且打印 10 个值。应当是值 1，2，3，…，10。</p>
+<ol start="3">
+<li><p>用 Walk 实现 Same 函数来检测是否 t1 和 t2 存储了相同的值。</p>
+</li>
+<li><p>测试 Same 函数。</p>
+</li>
+</ol>
+<p>Same(tree.New(1), tree.New(1)) 应当返回 true，而 Same(tree.New(1), tree.New(2)) 应当返回 false。</p>
+<p>我的代码如下：</p>
+<pre><code> 1  
+ 2 
+ 3 import(
+ 4     "fmt"
+ 5     "code.google.com/p/go-tour/tree"
+ 6 )
+ 7 
+ 8 func Walk(t* tree.Tree,ch chan int){
+ 9     if t.Left != nil{
+10         Walk(t.Left,ch)
+11     }
+12     ch <- t.Value
+13     if t.Right != nil{
+14         Walk(t.Right,ch)
+15     }
+16     return
+17 }
+18 
+19 func Same(t1,t2 *tree.Tree) bool{
+20     ca := make(chan int,10)
+21     cb := make(chan int,10)
+22     go Walk(t1,ca)
+23     go Walk(t2,cb)
+24     for n:=10; n>0;n--{
+25 //方式1
+26         if <-ca != <-cb{
+27             return false
+28         }
+29 //方式2
+30 /*
+31         var va int
+32         var vb int
+33         select {
+34             case va=<-ca:
+35                 vb=<-cb
+36             case vb=<-cb:
+37                 va=<-ca
+38         }
+39         if va != vb {
+40             return false
+41         }
+42     }
+43 */
+44     }
+45     return true
+46 }
+47 
+48 func main(){
+49      t1 := tree.New(1)
+50      t2 := tree.New(1)
+51      fmt.Println(Same(t1,t2))
+52 }</code></pre><p>其中方式1是方式2的简便写法。<br>而在下面两句中，声明了缓冲的chan，出于好奇，把10去掉，看看结果如何</p>
+<pre><code>20     ca := make(chan int,10)
+21     cb := make(chan int,10)</code></pre><p>结果如下：</p>
+<pre><code>lwj@lwj-HP-Mini-5101:~/code/go$ time ./tree
+true
+
+real    0m0.027s
+user    0m0.012s
+sys 0m0.008s
+lwj@lwj-HP-Mini-5101:~/code/go$ time ./nocachetree 
+true
+
+real    0m0.030s
+user    0m0.020s
+sys 0m0.000s</code></pre><p>看来无差别，起码在这个程序里，缓冲，没有带来性能上优势</p>
+</body></html>
+
+  
+  <div class="post-guide">
+    <div class="item left">
+        
+          <a href="/2020/01/04/2013-05-25-siege-http-load-test/">压力测试工具：siege </a>
+        
+    </div>
+    <div class="item right">
+        
+          <a href="/2020/01/04/2013-05-30-c-s-shared-object-so/">c 's 动态链接库</a>
+        
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="http://github.com/weekenlee">vklee</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="http://github.com/weekenlee/2020/01/04/2013-04-04-tree/">http://github.com/weekenlee/2020/01/04/2013-04-04-tree/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="http://github.com/weekenlee">vklee</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+  
+</article>
         <footer>
           <div class="copyright">
             ©2020
