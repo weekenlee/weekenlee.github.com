@@ -196,15 +196,7 @@
       <div>
       </div>
     </div>
-    <html><head></head><body><p>package main</p>
-<p>import “fmt”</p>
-<p>type a struct{<br>}</p>
-<p>func (oa a) hi(){<br>    fmt.Println(“in a’s hi()”)<br>}</p>
-<p>type b struct{<br>}</p>
-<p>func (ob b) hi(){<br>    fmt.Println(“in b’s hi()”)<br>}</p>
-<p>type Hi interface{<br>    hi()<br>}</p>
-<p>func sayhello(h Hi){<br>    h.hi()<br>}</p>
-<p>func main(){<br>    var oa a<br>    var ob b<br>    sayhello(oa)<br>    sayhello(ob)<br>}</p>
+    <html><head></head><body><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs bash">package main<br><br>import <span class="hljs-string">"fmt"</span><br><br><span class="hljs-built_in">type</span> a struct{<br>}<br><br>func (oa a) <span class="hljs-function"><span class="hljs-title">hi</span></span>(){<br>	fmt.Println(<span class="hljs-string">"in a's hi()"</span>)<br>}<br><br><span class="hljs-built_in">type</span> b struct{<br>}<br><br>func (ob b) <span class="hljs-function"><span class="hljs-title">hi</span></span>(){<br>	fmt.Println(<span class="hljs-string">"in b's hi()"</span>)<br>}<br><br><span class="hljs-built_in">type</span> Hi interface{<br>	hi()<br>}<br><br><br>func sayhello(h Hi){<br>	h.hi()<br>}<br><br>func <span class="hljs-function"><span class="hljs-title">main</span></span>(){<br>	var oa a<br>	var ob b<br>	sayhello(oa)<br>	sayhello(ob)<br>}<br></code></pre></td></tr></tbody></table></figure>
 </body></html>
 
   

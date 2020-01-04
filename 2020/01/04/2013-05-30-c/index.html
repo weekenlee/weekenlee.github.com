@@ -16,7 +16,7 @@
     <meta name="description" content="" />
     
     <title>
-      归档 - 岳麓听雨Code4Fun
+      c结构体对齐 - 岳麓听雨Code4Fun
     </title>
     <link rel="manifest" href="/manifest.json" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
@@ -60,7 +60,7 @@
           首页
         </a>
         
-        <a href="/archives" class="current">
+        <a href="/archives" class="">
           归档
         </a>
         
@@ -114,7 +114,7 @@
             首页
           </a>
           
-          <a href="/archives" class="current">
+          <a href="/archives" class="">
             归档
           </a>
           
@@ -155,70 +155,88 @@
     </div>
     <div id="container">
       <div class="main animated bounceInRight delay-0.7s">
-        <div id="archives">
-    
-        <div class="title">
-            归档 
-            
-        </div>
-    
-
-
-
-
-    
-    
-    <section class="wrap">
-        <div class="meta">
-            <a href="/archives/2020" >
-                2020
-            </a>
-        </div>
-        <div class="year">
-            
-            <article class="item">
-            <a href="/2020/01/04/hello-world/" title="Hello World">
-                <span>2020/01/04</span>
-                <span>Hello World</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-03-30-go/" title="go语言interface初试">
-                <span>2020/01/04</span>
-                <span>go语言interface初试</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-04-26-python/" title="python实现函数权限调用管理">
-                <span>2020/01/04</span>
-                <span>python实现函数权限调用管理</span>
-            </a>
-            </article>
-            
-
-
-            <article class="item">
-            <a href="/2020/01/04/2013-05-30-c/" title="c结构体对齐">
-                <span>2020/01/04</span>
-                <span>c结构体对齐</span>
-            </a>
-            </article>
-            
-    
-        </div>
-    </section>
+        <article class="post-entry">
+    <div class="header">
       
-<div class="paginator">
-    <span class="page-number current">1</span>
-</div>
-</div>
+      <div class="title">c结构体对齐</div>
+      <div class="meta">
+        <span class="item">
+          <span class="iconfont icon-time-circle"></span>
+          <span>2020/01/04</span>
+        </span>
 
+        
+
+         
+        <span class="item">
+          <span class="iconfont icon-folder"></span>
+          <span>
+              
+                
+                  <a href="/categories/语法">语法</a>
+                
+              
+          </span>
+        </span>
+        
+        
+         
+          <span class="item">
+            <span class="iconfont icon-tag1"></span>
+            <span>
+                
+                  
+                    <a href="/tags/c">c</a>
+                  
+                
+            </span>
+          </span>
+         
+      </div>
+      <div>
+      </div>
+    </div>
+    <html><head></head><body><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs bash"> 1	<span class="hljs-comment">#include<stdio.h></span><br> 2	<span class="hljs-comment">#include<stddef.h></span><br> 3	<br> 4	typedef struct <br> 5	{<br> 6	    int x;<br> 7	    short y[3];<br> 8	    long long z;<br> 9	}data_z;<br>10	<br>11	int main()<br>12	{<br>13	    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"sizeof(int) %d\n"</span>,sizeof(int));<br>14	    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"sizeof(short)%d\n "</span>,sizeof(short));<br>15	    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"sizeof(long long) %d\n"</span>,sizeof(long long));<br>16	    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"x %d\n"</span>,offsetof(data_z,x));<br>17	    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"y %d\n"</span>,offsetof(data_z,y));<br>18	    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"y1 %d\n"</span>,offsetof(data_z,y[1]));<br>19	    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"z %d\n"</span>,offsetof(data_z,z));<br>20	    <span class="hljs-built_in">return</span> 0;<br>21	}<br></code></pre></td></tr></tbody></table></figure>
+<p>结果：</p>
+<pre><code>sizeof(int) 4
+sizeof(short)2
+sizeof(long long) 8
+x 0
+y 4
+y1 6
+z 12</code></pre></body></html>
+
+  
+  <div class="post-guide">
+    <div class="item left">
+        
+          <a href="/2020/01/04/2013-04-26-python/">python实现函数权限调用管理</a>
+        
+    </div>
+    <div class="item right">
+        
+    </div>
+  </div>
+
+  
+
+  <div class="post-copyright">
+    <div class="auth">
+      本文作者：<a href="http://github.com/weekenlee">vklee</a>
+    </div>
+    <div class="link">
+      永久链接：<a href="http://github.com/weekenlee/2020/01/04/2013-05-30-c/">http://github.com/weekenlee/2020/01/04/2013-05-30-c/</a>
+    </div>
+    <div class="declare">
+      版权声明：本文首发于<a href="http://github.com/weekenlee">vklee</a>的博客，转载请注明出处！
+    </div>
+  </div>
+
+  <div id="comment"></div>
+
+  
+  
+</article>
         <footer>
           <div class="copyright">
             ©2020

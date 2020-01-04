@@ -27,11 +27,6 @@
   <body>
     <canvas id='pagemap'></canvas>
     
-    <div id="post-toc" class="animated hiddenToc hide">
-      <span class="title">Toc</span>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#coding-utf-8"><span class="toc-text">coding: utf-8</span></a></li></ol>
-    </div>
-    
     <div id="fixed-menu-wrap">
       <span class="iconfont icon-sousuo search-box menu-reset"></span>
       <span class="icon-toc menu-reset">Toc</span>
@@ -202,8 +197,7 @@
       </div>
     </div>
     <html><head></head><body><p>利用堆栈信息：</p>
-<h1 id="coding-utf-8">coding: utf-8<a class="post-anchor" href="#coding-utf-8"></a></h1><p>import sys<br>def save():<br>    f=sys._getframe(1)<br>    if not f.f_code.co_name.endswith(‘_super’):<br>    raise Exception(“Error!”)<br>    print “ok”<br>def test():save()<br>def test_super():save()</p>
-<p>test()<br>test_super()</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># coding: utf-8</span><br>import sys<br>def save():<br>    f=sys._getframe(1)<br>    <span class="hljs-keyword">if</span> not f.f_code.co_name.endswith(<span class="hljs-string">'_super'</span>):<br>	raise Exception(<span class="hljs-string">"Error!"</span>)<br>    <span class="hljs-built_in">print</span> <span class="hljs-string">"ok"</span><br>def <span class="hljs-built_in">test</span>():save()<br>def test_super():save()<br>   <br><span class="hljs-built_in">test</span>()<br>test_super()<br></code></pre></td></tr></tbody></table></figure>
 </body></html>
 
   
@@ -214,6 +208,8 @@
         
     </div>
     <div class="item right">
+        
+          <a href="/2020/01/04/2013-05-30-c/">c结构体对齐</a>
         
     </div>
   </div>
