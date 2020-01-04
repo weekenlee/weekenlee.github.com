@@ -16,7 +16,7 @@
     <meta name="description" content="" />
     
     <title>
-      Hello World - 岳麓听雨Code4Fun
+      python实现函数权限调用管理 - 岳麓听雨Code4Fun
     </title>
     <link rel="manifest" href="/manifest.json" />
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
@@ -29,7 +29,7 @@
     
     <div id="post-toc" class="animated hiddenToc hide">
       <span class="title">Toc</span>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#coding-utf-8"><span class="toc-text">coding: utf-8</span></a></li></ol>
     </div>
     
     <div id="fixed-menu-wrap">
@@ -163,7 +163,7 @@
         <article class="post-entry">
     <div class="header">
       
-      <div class="title">Hello World</div>
+      <div class="title">python实现函数权限调用管理</div>
       <div class="meta">
         <span class="item">
           <span class="iconfont icon-time-circle"></span>
@@ -172,36 +172,48 @@
 
         
 
+         
+        <span class="item">
+          <span class="iconfont icon-folder"></span>
+          <span>
+              
+                
+                  <a href="/categories/技巧">技巧</a>
+                
+              
+          </span>
+        </span>
         
         
-        
+         
+          <span class="item">
+            <span class="iconfont icon-tag1"></span>
+            <span>
+                
+                  
+                    <a href="/tags/python">python</a>
+                  
+                
+            </span>
+          </span>
+         
       </div>
       <div>
       </div>
     </div>
-    <html><head></head><body><p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start<a class="post-anchor" href="#Quick-Start"></a></h2><h3 id="Create-a-new-post">Create a new post<a class="post-anchor" href="#Create-a-new-post"></a></h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server">Run server<a class="post-anchor" href="#Run-server"></a></h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files">Generate static files<a class="post-anchor" href="#Generate-static-files"></a></h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites<a class="post-anchor" href="#Deploy-to-remote-sites"></a></h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <html><head></head><body><p>利用堆栈信息：</p>
+<h1 id="coding-utf-8">coding: utf-8<a class="post-anchor" href="#coding-utf-8"></a></h1><p>import sys<br>def save():<br>    f=sys._getframe(1)<br>    if not f.f_code.co_name.endswith(‘_super’):<br>    raise Exception(“Error!”)<br>    print “ok”<br>def test():save()<br>def test_super():save()</p>
+<p>test()<br>test_super()</p>
 </body></html>
 
   
   <div class="post-guide">
     <div class="item left">
         
+          <a href="/2020/01/04/2013-03-30-go/">go语言interface初试</a>
+        
     </div>
     <div class="item right">
-        
-          <a href="/2020/01/04/2013-03-30-go/">go语言interface初试</a>
         
     </div>
   </div>
@@ -213,7 +225,7 @@
       本文作者：<a href="http://github.com/weekenlee">vklee</a>
     </div>
     <div class="link">
-      永久链接：<a href="http://github.com/weekenlee/2020/01/04/hello-world/">http://github.com/weekenlee/2020/01/04/hello-world/</a>
+      永久链接：<a href="http://github.com/weekenlee/2020/01/04/2013-04-26-python/">http://github.com/weekenlee/2020/01/04/2013-04-26-python/</a>
     </div>
     <div class="declare">
       版权声明：本文首发于<a href="http://github.com/weekenlee">vklee</a>的博客，转载请注明出处！
